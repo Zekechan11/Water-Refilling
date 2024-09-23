@@ -1,5 +1,5 @@
 <script setup>
-import { useLayout } from '@/layout/composables/layout';    
+import { useLayout } from '@/layout/composables/layout';
 
 const { onMenuToggle, toggleDarkMode, isDarkTheme } = useLayout();
 </script>
@@ -11,7 +11,7 @@ const { onMenuToggle, toggleDarkMode, isDarkTheme } = useLayout();
                 <i class="pi pi-bars"></i>
             </button>
             <router-link to="/" class="layout-topbar-logo">
-                <img src="/public/demo/images/logo2.png" alt="" style="height: 30px;width: 150px;">
+                <img src="/public/demo/images/logo2.png" alt="" style="height: 30px; width: 150px" />
             </router-link>
         </div>
 
@@ -31,12 +31,12 @@ const { onMenuToggle, toggleDarkMode, isDarkTheme } = useLayout();
 
             <div class="layout-topbar-menu hidden lg:block">
                 <div class="layout-topbar-menu-content">
-                    <button type="button" class="layout-topbar-action">
-                        <i class="pi pi-qrcode"></i>
+                    <button type="button" class="layout-topbar-action flex items-center space-x-2">
+                        <img src="/public/demo/images/scan.png" alt="" class="h-7 w-7" />
                         <span>Scanner</span>
                     </button>
-                    <button type="button" class="layout-topbar-action">
-                        <i class="pi pi-user"></i>
+                    <button type="button" class="layout-topbar-action flex items-center space-x-2">
+                        <i class="pi pi-user text-xl"></i>
                         <span>Profile</span>
                     </button>
                 </div>
