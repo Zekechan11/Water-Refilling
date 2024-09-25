@@ -1,11 +1,20 @@
 <script setup>
 import { useLayout } from '@/layout/composables/layout';    
+import { useRouter } from 'vue-router';
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 
 const { onMenuToggle, toggleDarkMode, isDarkTheme } = useLayout();
+const topbarMenuActive = ref(false);
+const router = useRouter();
+
+const onSettingsClick = () => {
+    topbarMenuActive.value = false;
+    router.push('/user-settings');
+};
 </script>
 
 <template>
-    <div class="layout-topbar">
+    <div class="layout-topbar shadow-md">
         <div class="layout-topbar-logo-container">
             <button class="layout-menu-button layout-topbar-action" @click="onMenuToggle">
                 <i class="pi pi-bars"></i>
@@ -35,7 +44,7 @@ const { onMenuToggle, toggleDarkMode, isDarkTheme } = useLayout();
                         <i class="pi pi-inbox"></i>
                         <span>Messages</span>
                     </button>
-                    <button type="button" class="layout-topbar-action">
+                    <button type="button" class="layout-topbar-action" @click="onSettingsClick">
                         <i class="pi pi-user"></i>
                         <span>Profile</span>
                     </button>

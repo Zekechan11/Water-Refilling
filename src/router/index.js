@@ -25,19 +25,24 @@ const router = createRouter({
             component: Layout,
             children: [
                 {
-                    path: '/user/dashboard',
+                    path: '/dashboard',
                     name: 'dashboard',
                     component: () => import('@/views/user/Dashboard.vue')
                 },
                 {
-                    path: '/user/history',
+                    path: '/history',
                     name: 'history',
                     component: () => import('@/views/user/History.vue')
                 },
                 {
-                    path: '/user/messages',
+                    path: '/messages',
                     name: 'messages',
                     component: () => import('@/views/user/Chat.vue')
+                },
+                {
+                    path: '/user-settings',
+                    name: 'user-settings',
+                    component: () => import('@/views/user/Setting.vue')
                 }
                 
             ]

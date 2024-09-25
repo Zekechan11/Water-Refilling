@@ -10,19 +10,19 @@ const model = ref([
         { 
             label: 'Dashboard', 
             icon: 'pi pi-fw pi-home', 
-            to: '/user/dashboard' 
+            to: '/dashboard' 
         },
 
         { 
             label: 'Message', 
             icon: 'pi pi-fw pi-comment', 
-            to: '/user/messages' 
+            to: '/messages' 
         },
 
         { 
             label: 'History', 
             icon: 'pi pi-fw pi-comment', 
-            to: '/user/history' 
+            to: '/history' 
         }
         
         ]
