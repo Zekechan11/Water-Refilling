@@ -25,22 +25,17 @@ const router = createRouter({
             component: Layout,
             children: [
                 {
-                    path: '/dashboard',
+                    path: '/user/dashboard',
                     name: 'dashboard',
                     component: () => import('@/views/user/Dashboard.vue')
                 },
                 {
-                    path: '/history',
-                    name: 'history',
-                    component: () => import('@/views/user/History.vue')
-                },
-                {
-                    path: '/messages',
+                    path: '/user/messages',
                     name: 'messages',
                     component: () => import('@/views/user/Chat.vue')
                 },
                 {
-                    path: '/user-settings',
+                    path: '/user/settings',
                     name: 'user-settings',
                     component: () => import('@/views/user/Setting.vue')
                 }
@@ -53,19 +48,24 @@ const router = createRouter({
             component: AgentLayout,
             children: [
                 {
-                    path: '/agent/dashboards',
+                    path: '/agent/dashboard',
                     name: 'dashboards',
                     component: () => import('@/views/agent/Dashboard.vue')
                 },
                 {
-                    path: '/agent/historys',
+                    path: '/agent/history',
                     name: 'historys',
                     component: () => import('@/views/agent/History.vue')
                 },
                 {
-                    path: '/agent/messagess',
+                    path: '/agent/message',
                     name: 'messagess',
                     component: () => import('@/views/agent/Chat.vue')
+                },
+                {
+                    path: '/agent/settings',
+                    name: 'settingss',
+                    component: () => import('@/views/agent/Setting.vue')
                 }
                 
             ]
@@ -78,49 +78,49 @@ const router = createRouter({
             component: AppLayout,
             children: [
                 {
-                    path: '/views/dashboardss',
+                    path: '/views/dashboard',
                     name: 'dashboardss',
                     component: () => import('@/views/Dashboard.vue')
                 },
                 
                 {
-                    path: '/uikit/formlayout',
+                    path: '/admin/formlayout',
                     name: 'formlayout',
-                    component: () => import('@/views/uikit/FormLayout.vue')
+                    component: () => import('@/views/admin/FormLayout.vue')
                 },
                 {
-                    path: '/uikit/button',
+                    path: '/admin/button',
                     name: 'button',
-                    component: () => import('@/views/uikit/ButtonDoc.vue')
+                    component: () => import('@/views/admin/ButtonDoc.vue')
                 },
                 {
-                    path: '/uikit/table',
+                    path: '/admin/table',
                     name: 'table',
-                    component: () => import('@/views/uikit/TableDoc.vue')
+                    component: () => import('@/views/admin/TableDoc.vue')
                 },
         
                 {
-                    path: '/uikit/media',
+                    path: '/admin/media',
                     name: 'media',
-                    component: () => import('@/views/uikit/MediaDoc.vue')
+                    component: () => import('@/views/admin/MediaDoc.vue')
                 },
                 
                 {
-                    path: '/uikit/message',
+                    path: '/admin/message',
                     name: 'message',
-                    component: () => import('@/views/uikit/MessagesDoc.vue')
+                    component: () => import('@/views/admin/MessagesDoc.vue')
                 },
         
                 {
-                    path: '/uikit/menu',
+                    path: '/admin/menu',
                     name: 'menu',
-                    component: () => import('@/views/uikit/MenuDoc.vue')
+                    component: () => import('@/views/admin/MenuDoc.vue')
                 },
         
                 {
-                    path: '/uikit/misc',
+                    path: '/admin/misc',
                     name: 'misc',
-                    component: () => import('@/views/uikit/MiscDoc.vue')
+                    component: () => import('@/views/admin/MiscDoc.vue')
                 },
         
                 {

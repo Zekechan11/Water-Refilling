@@ -19,7 +19,7 @@ function sendMessage() {
 <template>
     <div class="flex flex-col md:flex-row gap-8">
         <!-- Chat Box -->
-        <div class="md:w-full flex flex-col h-[650px] border border-gray-300 rounded-lg shadow-md">
+        <div class="md:w-full flex flex-col h-[620px] border border-gray-300 rounded-lg shadow-md">
             <div class="bg-blue-500 text-white font-semibold text-xl p-4 rounded-t-lg">Chat</div>
             <div class="flex-grow p-4 overflow-y-auto space-y-4">
                 <!-- Messages Loop -->

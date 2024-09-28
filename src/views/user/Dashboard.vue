@@ -1,17 +1,14 @@
 <script setup>
 import { useLayout } from "@/layout/composables/layout";
-import { ProductService } from '@/service/ProductService';
 import { CustomerService } from '@/service/CustomerService';
 import { onBeforeMount, ref } from 'vue';
 
 const { getPrimary, getSurface, isDarkTheme } = useLayout();
 const dateFrozen = ref(false);
 const customers2 = ref(null);
-const products = ref(null);
 const activeTab = ref('purchase'); // Add a variable for the active tab
 
 onBeforeMount(() => {
-    ProductService.getProductsWithOrdersSmall().then((data) => (products.value = data));
     CustomerService.getCustomersLarge().then((data) => (customers2.value = data));
 });
 
@@ -22,7 +19,7 @@ const formatCurrency = (value) => {
 
 <template>
   <div class="space">
-    <h1 class="text-4xl font-bold mb-6">Dashboard</h1>
+    <h1 class="text-4xl font-bold mb-6" style="color: #899499;">Dashboard</h1>
   </div>
 
   <div class="card shadow-md">

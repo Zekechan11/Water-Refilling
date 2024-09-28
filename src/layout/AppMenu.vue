@@ -5,32 +5,18 @@ import AppMenuItem from './AppMenuItem.vue';
 
 const model = ref([
     {
-        items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/views/dashboardss' }]
+        items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/views/dashboard' }]
     },
     {
         label: 'UI Components',
         items: [
-            { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/uikit/formlayout' },
-            { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/uikit/button', class: 'rotated-icon' },
-            { label: 'Table', icon: 'pi pi-fw pi-table', to: '/uikit/table' },
-            { label: 'Media', icon: 'pi pi-fw pi-image', to: '/uikit/media' },
-            { label: 'Menu', icon: 'pi pi-fw pi-bars', to: '/uikit/menu' },
-            { label: 'Message', icon: 'pi pi-fw pi-comment', to: '/uikit/message' },
-            { label: 'Misc', icon: 'pi pi-fw pi-circle', to: '/uikit/misc' }
+            { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/admin/formlayout' },
+            { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/admin/button', class: 'rotated-icon' },
+            { label: 'Menu', icon: 'pi pi-fw pi-bars', to: '/admin/menu' },
+            { label: 'Message', icon: 'pi pi-fw pi-comment', to: '/admin/message' },
+            { label: 'Misc', icon: 'pi pi-fw pi-circle', to: '/admin/misc' }
         ]
     },
-    {
-        label: 'Pages',
-        icon: 'pi pi-fw pi-briefcase',
-        to: '/pages',
-        items: [
-            {
-                label: 'Crud',
-                icon: 'pi pi-fw pi-pencil',
-                to: '/pages/crud'
-            }
-        ]
-    }
     // {
     //     label: 'Hierarchy',
     //     items: [

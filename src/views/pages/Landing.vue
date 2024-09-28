@@ -70,7 +70,7 @@ function smoothScroll(id) {
                     </h1>
 
                     <p class="font-normal text-2xl leading-normal md:mt-4 text-gray-700" style="position: relative; top: 100px">Come to our station to see hanimetv</p>
-                    <Button label="Get Started" as="router-link" to="/views/dashboardss" severity="info" raised rounded class="!text-xl mt-8 !px-4" style="position: relative; top: 100px"></Button>
+                    <Button label="Get Started" as="router-link" to="/views/dashboard" severity="info" raised rounded class="!text-xl mt-8 !px-4" style="position: relative; top: 100px"></Button>
                 </div>
                 <div class="flex justify-center md:justify-end">
                     <img src="/public/demo/images/art.png" alt="Hero Image" style="width: 770px; height: 550px; position: relative; left: 80px; bottom: 100px" />

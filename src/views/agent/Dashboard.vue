@@ -1,14 +1,11 @@
 <script setup>
 import { CustomerService } from '@/service/CustomerService';
-import { ProductService } from '@/service/ProductService';
 import { onBeforeMount, ref } from 'vue';
 
 const customers2 = ref(null);
 const dateFrozen = ref(false);
-const products = ref(null);
 
 onBeforeMount(() => {
-    ProductService.getProductsWithOrdersSmall().then((data) => (products.value = data));
     CustomerService.getCustomersLarge().then((data) => (customers2.value = data));
 
 });

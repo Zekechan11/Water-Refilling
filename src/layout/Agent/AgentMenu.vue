@@ -10,19 +10,24 @@ const model = ref([
         { 
             label: 'Container on Loan', 
             icon: 'pi pi-fw pi-home', 
-            to: '/agent/dashboards' 
+            to: '/agent/dashboard' 
         },
 
         { 
             label: 'Message', 
             icon: 'pi pi-fw pi-comment', 
-            to: '/agent/messagess' 
+            to: '/agent/message' 
         },
 
         { 
             label: 'History', 
             icon: 'pi pi-fw pi-comment', 
-            to: '/agent/historys' 
+            to: '/agent/history' 
+        },
+        { 
+            label: 'Scanner', 
+            icon: 'pi pi-qrcode', 
+            to: '/' 
         }
         
         ]
