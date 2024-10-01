@@ -23,8 +23,8 @@ const formatCurrency = (value) => {
   </div>
 
   <div class="card shadow-md">
-    <div class="flex justify-between items-center mb-6">
-      <!-- Tab buttons -->
+    <!-- <div class="flex justify-between items-center mb-6">
+
       <div class="flex space-x-4">
         <button
           :class="['py-2 px-4 rounded', activeTab === 'purchase' ? 'bg-primary text-white' : 'bg-gray-200']"
@@ -39,7 +39,7 @@ const formatCurrency = (value) => {
           History
         </button>
       </div>
-    </div>
+    </div> -->
 
     <!-- Tab content -->
     <div v-if="activeTab === 'purchase'">
@@ -95,7 +95,7 @@ const formatCurrency = (value) => {
       </ul>
     </div>
 
-    <div v-if="activeTab === 'utang'">
+    <!-- <div v-if="activeTab === 'utang'">
         <div class="font-semibold text-xl mb-4">Frozen Columns</div>
     <ToggleButton v-model="dateFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Date" offLabel="Date" />
     <DataTable :value="customers2" scrollable scrollHeight="400px" class="mt-6">
@@ -112,7 +112,7 @@ const formatCurrency = (value) => {
       <Column field="date" header="Date" style="min-width: 200px" alignFrozen="right" :frozen="dateFrozen"></Column>
     </DataTable>
 
-    </div>
+    </div> -->
   </div>
 
   <!-- DataTable Card for Customers -->

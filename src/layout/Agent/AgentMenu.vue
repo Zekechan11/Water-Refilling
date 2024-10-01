@@ -21,13 +21,13 @@ const model = ref([
 
         { 
             label: 'History', 
-            icon: 'pi pi-fw pi-comment', 
+            icon: 'pi pi-history', 
             to: '/agent/history' 
         },
         { 
             label: 'Scanner', 
             icon: 'pi pi-qrcode', 
-            to: '/' 
+            to: '/agent/scanner' 
         }
         
         ]

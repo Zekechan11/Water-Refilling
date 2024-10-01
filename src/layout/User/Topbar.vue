@@ -10,14 +10,15 @@ const router = useRouter();
 
 const onSettingsClick = () => {
   topbarMenuActive.value = false;
-  router.push("/user/settings");
+  router.push("/user/settings");a
 };
 
 const notifications = ref([
-  { id: 1, message: "You have a new message." },
-  { id: 2, message: "Your profile was updated." },
-  { id: 3, message: "New friend request." },
+  { id: 1, message: "Payables #124: ₱200. Due Date: 2024-10-10. Status: Active.", addLine: true },
+  { id: 2, message: "Payables #125: ₱200. Due Date: 2024-10-15. Status: Inactive.", addLine: true },
+  { id: 3, message: "Payables #126: ₱300. Due Date: 2024-10-20. Status: Active.", addLine: true },
 ]);
+
 
 const toggleNotifications = () => {
   notificationsVisible.value = !notificationsVisible.value;
@@ -35,7 +36,7 @@ const toggleNotifications = () => {
       </button>
       <router-link to="/" class="layout-topbar-logo">
         <img
-          src="/public/demo/images/logo2.png"
+          src="/demo/images/logo2.png"
           alt=""
           style="height: 30px; width: 150px"
         />
@@ -66,23 +67,31 @@ const toggleNotifications = () => {
       <div class="layout-topbar-menu hidden lg:block">
         <div class="layout-topbar-menu-content">
           <div class="notification-container">
-  <button type="button" class="layout-topbar-action" @click="toggleNotifications">
-    <i class="pi pi-bell"></i>
-    <span>Notification</span>
-  </button>
-  <span class="notification-badge">3</span>
+            <button
+              type="button"
+              class="layout-topbar-action"
+              @click="toggleNotifications"
+            >
+              <i class="pi pi-bell"></i>
+              <span>Notification</span>
+            </button>
+            <span class="notification-badge">3</span>
 
-  <div v-if="notificationsVisible" class="notification-dropdown">
-    <div class="notification-dropdown-content">
-      <h4>Notifications</h4>
-      <ul>
-        <li v-for="notification in notifications" :key="notification.id">
-          {{ notification.message }}
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
+            <div v-if="notificationsVisible" class="notification-dropdown">
+              <div class="notification-dropdown-content">
+                <h4>Notifications</h4>
+                <ul>
+                  <li
+                    v-for="notification in notifications"
+                    :key="notification.id"
+                  >
+                    {{ notification.message }}
+                    <span v-if="notification.addLine" class="line"></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
           <button
             type="button"
@@ -113,7 +122,7 @@ const toggleNotifications = () => {
 }
 
 .notification-dropdown::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -5px;
   right: 10px;
@@ -140,6 +149,14 @@ const toggleNotifications = () => {
   padding: 5px 10px; /* Add padding for touch targets */
 }
 
+.line {
+  display: block;
+  width: 100%;
+  height: 1px; /* Line thickness */
+  background-color: #ccc; /* Line color */
+  margin: 5px 0; /* Spacing around the line */
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .notification-dropdown {
@@ -147,11 +164,9 @@ const toggleNotifications = () => {
     left: 0; /* Align it to the left */
     right: auto; /* Remove right alignment */
   }
-  
+
   .notification-dropdown::before {
     right: calc(50% - 10px); /* Center the arrow */
   }
 }
-
-
 </style>

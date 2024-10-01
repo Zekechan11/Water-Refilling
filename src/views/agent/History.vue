@@ -1,43 +1,15 @@
 <script setup>
 import { CustomerService } from '@/service/CustomerService';
-import { ProductService } from '@/service/ProductService';
-import { FilterMatchMode, FilterOperator } from '@primevue/core/api';
-import { onBeforeMount, reactive, ref } from 'vue';
+import { onBeforeMount, ref } from 'vue';
 
-const customers1 = ref(null);
 const customers2 = ref(null);
-const customers3 = ref(null);
-const filters1 = ref(null);
-const loading1 = ref(null);
-const balanceFrozen = ref(false);
-const products = ref(null);
+const dateFrozen = ref(false);
 
 onBeforeMount(() => {
-    ProductService.getProductsWithOrdersSmall().then((data) => (products.value = data));
-    CustomerService.getCustomersLarge().then((data) => {
-        customers1.value = data;
-        loading1.value = false;
-        customers1.value.forEach((customer) => (customer.date = new Date(customer.date)));
-    });
     CustomerService.getCustomersLarge().then((data) => (customers2.value = data));
-    CustomerService.getCustomersMedium().then((data) => (customers3.value = data));
 
-    initFilters1();
 });
 
-function initFilters1() {
-    filters1.value = {
-        global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-        name: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-        'country.name': { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.STARTS_WITH }] },
-        representative: { value: null, matchMode: FilterMatchMode.IN },
-        date: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.DATE_IS }] },
-        balance: { operator: FilterOperator.AND, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
-        status: { operator: FilterOperator.OR, constraints: [{ value: null, matchMode: FilterMatchMode.EQUALS }] },
-        activity: { value: [0, 100], matchMode: FilterMatchMode.BETWEEN },
-        verified: { value: null, matchMode: FilterMatchMode.EQUALS }
-    };
-}
 
 function formatCurrency(value) {
     return value.toLocaleString('en-US', { style: 'currency', currency: 'PHP' });
@@ -47,27 +19,24 @@ function formatCurrency(value) {
 
 <template>
     <div class="space">
-        <h1 class="text-4xl font-bold mb-6">
+        <h1 class="text-4xl font-bold mb-6" style="color: #899499;">
             History
         </h1>
     </div>
     
-    <div class="card">
-        <div class="font-semibold text-xl mb-4">Frozen Columns</div>
-        <ToggleButton v-model="balanceFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Balance" offLabel="Balance" />
+    <div class="card shadow-md">
+        <ToggleButton v-model="dateFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Date" offLabel="Date" />
 
         <DataTable :value="customers2" scrollable scrollHeight="400px" class="mt-6">
             <Column field="id" header="Id" style="min-width: 100px"></Column>
-            <Column field="activity" header="Basiyo" style="min-width: 200px"></Column>
+            <Column field="activity" header="Container on Loan" style="min-width: 200px"></Column>
+
             <Column field="country.name" header="Area" style="min-width: 200px"></Column>
-            <Column field="representative.name" header="Agent" style="min-width: 200px"></Column>
-            <Column field="date" header="Date" style="min-width: 200px"></Column>
+            <Column field="representative.name" header="Galllons Collected" style="min-width: 200px"></Column>
+            <Column field="representative.name" header="Amount Collected" style="min-width: 200px"></Column>
+            <Column field="date" header="Date" style="min-width: 200px" alignFrozen="right" :frozen="dateFrozen"></Column>
             <!-- <Column field="status" header="Status" style="min-width: 200px"></Column> -->
-            <Column field="balance" header="Balance" style="min-width: 200px" alignFrozen="right" :frozen="balanceFrozen">
-                <template #body="{ data }">
-                    <span class="font-bold">{{ formatCurrency(data.balance) }}</span>
-                </template>
-            </Column>
+       
         </DataTable>
     </div>
 </template>

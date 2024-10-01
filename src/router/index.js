@@ -66,6 +66,11 @@ const router = createRouter({
                     path: '/agent/settings',
                     name: 'settingss',
                     component: () => import('@/views/agent/Setting.vue')
+                },
+                {
+                    path: '/agent/scanner',
+                    name: 'scanner',
+                    component: () => import('@/views/agent/Scan.vue')
                 }
                 
             ]
@@ -93,17 +98,6 @@ const router = createRouter({
                     name: 'button',
                     component: () => import('@/views/admin/ButtonDoc.vue')
                 },
-                {
-                    path: '/admin/table',
-                    name: 'table',
-                    component: () => import('@/views/admin/TableDoc.vue')
-                },
-        
-                {
-                    path: '/admin/media',
-                    name: 'media',
-                    component: () => import('@/views/admin/MediaDoc.vue')
-                },
                 
                 {
                     path: '/admin/message',
@@ -123,11 +117,6 @@ const router = createRouter({
                     component: () => import('@/views/admin/MiscDoc.vue')
                 },
         
-                {
-                    path: '/pages/crud',
-                    name: 'crud',
-                    component: () => import('@/views/pages/Crud.vue')
-                },
         
                 
             ]

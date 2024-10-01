@@ -11,7 +11,7 @@ const Logout = () => {
 </script>
 
 <template>
-  <div class="layout-sidebar">
+  <div class="layout-sidebar shadow-md">
     <AgentMenu />
     <button type="button" class="logout-button" @click="Logout">
       <i class="pi pi-sign-out"></i>

@@ -14,10 +14,11 @@ const onSettingsClick = () => {
 };
 
 const notifications = ref([
-  { id: 1, message: "You have a new message." },
-  { id: 2, message: "Your profile was updated." },
-  { id: 3, message: "New friend request." },
+  { id: 1, message: "Admin message you", addLine: true },
+  { id: 2, message: "Delivery Delayed", addLine: true },
+  { id: 3, message: "Schedule move to 2024-10-20 ", addLine: true },
 ]);
+
 
 const toggleNotifications = () => {
   notificationsVisible.value = !notificationsVisible.value;
@@ -35,7 +36,7 @@ const toggleNotifications = () => {
       </button>
       <router-link to="/" class="layout-topbar-logo">
         <img
-          src="/public/demo/images/logo2.png"
+          src="/demo/images/logo2.png"
           alt=""
           style="height: 30px; width: 150px"
         />
@@ -85,6 +86,7 @@ const toggleNotifications = () => {
                     :key="notification.id"
                   >
                     {{ notification.message }}
+                    <span v-if="notification.addLine" class="line"></span>
                   </li>
                 </ul>
               </div>
@@ -145,6 +147,14 @@ const toggleNotifications = () => {
 
 .notification-dropdown li {
   padding: 5px 10px; /* Add padding for touch targets */
+}
+
+.line {
+  display: block;
+  width: 100%;
+  height: 1px; /* Line thickness */
+  background-color: #ccc; /* Line color */
+  margin: 5px 0; /* Spacing around the line */
 }
 
 /* Responsive Styles */

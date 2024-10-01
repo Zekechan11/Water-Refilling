@@ -1,58 +1,64 @@
 <script setup>
+import { useLayout } from "@/layout/composables/layout";
 import { CustomerService } from '@/service/CustomerService';
 import { onBeforeMount, ref } from 'vue';
 
-const customers2 = ref(null);
+const { getPrimary, getSurface, isDarkTheme } = useLayout();
 const dateFrozen = ref(false);
+const customers2 = ref(null);
+const activeTab = ref('purchase'); // Add a variable for the active tab
 
 onBeforeMount(() => {
     CustomerService.getCustomersLarge().then((data) => (customers2.value = data));
-
 });
 
-
-function formatCurrency(value) {
-    return value.toLocaleString('en-US', { style: 'currency', currency: 'PHP' });
-}
-
+const formatCurrency = (value) => {
+  return value.toLocaleString("en-US", { style: "currency", currency: "PHP" });
+};
 </script>
 
 <template>
-    <div class="space">
-        <h1 class="text-4xl font-bold mb-6">
-            Container on Loan
-        </h1>
-    </div>
-    
-    <div class="card">
-        <ToggleButton v-model="dateFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Date" offLabel="Date" />
+  <div class="space">
+    <h1 class="text-4xl font-bold mb-6" style="color: #899499;">Container on Loan</h1>
+  </div>
 
-        <DataTable :value="customers2" scrollable scrollHeight="400px" class="mt-6">
-            <Column field="id" header="Id" style="min-width: 100px"></Column>
-            <Column field="activity" header="Container on Loan" style="min-width: 200px"></Column>
-
-            <Column field="country.name" header="Area" style="min-width: 200px"></Column>
-            <Column field="representative.name" header="Galllons Collected" style="min-width: 200px"></Column>
-            <Column field="representative.name" header="Amount Collected" style="min-width: 200px"></Column>
-            <Column field="date" header="Date" style="min-width: 200px" alignFrozen="right" :frozen="dateFrozen"></Column>
-            <!-- <Column field="status" header="Status" style="min-width: 200px"></Column> -->
-       
-        </DataTable>
+  <div class="card shadow-md" style="height: 550px">
+    <!-- Tab content -->
+    <div>
+      <ul class="list-none p-0 m-0 mt-20">
+        <li class="flex flex-col md:flex-row md:items-center md:justify-between mb-20">
+          <div>
+            <span class="text-surface-900 dark:text-surface-0 font-bold mr-2 mb-1 md:mb-0" style="font-size: 24px;">Container on loan :</span>
+          </div>
+          <div class="mt-2 md:mt-0 flex items-center">
+            <span class="ml-4 font-medium" style="font-size: 24px;">50</span>
+          </div>
+        </li>
+        <li class="flex flex-col md:flex-row md:items-center md:justify-between mb-20">
+          <div>
+            <span class="text-surface-900 dark:text-surface-0 font-bold mr-2 mb-1 md:mb-0" style="font-size: 24px;">Area :</span>
+          </div>
+          <div class="mt-2 md:mt-0 ml-0 md:ml-20 flex items-center">
+            <span class="ml-4 font-medium" style="font-size: 24px;">Guadalupe</span>
+          </div>
+        </li>
+        <li class="flex flex-col md:flex-row md:items-center md:justify-between mb-20">
+          <div>
+            <span class="text-surface-900 dark:text-surface-0 font-bold mr-2 mb-1 md:mb-0" style="font-size: 24px;">Gallons Collected :</span>
+          </div>
+          <div class="mt-2 md:mt-0 ml-0 md:ml-20 flex items-center">
+            <span class="ml-4 font-medium" style="font-size: 24px;">{{ formatCurrency(20) }}</span>
+          </div>
+        </li>
+        <li class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+          <div>
+            <span class="text-surface-900 dark:text-surface-0 font-bold mr-2 mb-1 md:mb-0" style="font-size: 24px;">Amount Collected :</span>
+          </div>
+          <div class="mt-2 md:mt-0 ml-0 md:ml-20 flex items-center">
+            <span class="ml-4 font-medium" style="font-size: 24px;">{{ formatCurrency(20) }}</span>
+          </div>
+        </li>
+      </ul>
     </div>
+  </div>
 </template>
-
-
-<style scoped lang="scss">
-:deep(.p-datatable-frozen-tbody) {
-    font-weight: bold;
-}
-
-:deep(.p-datatable-scrollable .p-frozen-column) {
-    font-weight: bold;
-}
-
-h1 {
-    color: #4A5568; /* A nice dark gray color */
-    margin-bottom: 1.5rem; /* Adds some spacing below the header */
-}
-</style>

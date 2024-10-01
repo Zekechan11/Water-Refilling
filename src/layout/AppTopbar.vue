@@ -1,7 +1,7 @@
 <script setup>
 import { useLayout } from '@/layout/composables/layout';
 
-const { onMenuToggle, toggleDarkMode, isDarkTheme } = useLayout();
+const { onMenuToggle, isDarkTheme } = useLayout();
 </script>
 
 <template>
@@ -11,16 +11,11 @@ const { onMenuToggle, toggleDarkMode, isDarkTheme } = useLayout();
                 <i class="pi pi-bars"></i>
             </button>
             <router-link to="/" class="layout-topbar-logo">
-                <img src="/public/demo/images/logo2.png" alt="" style="height: 30px;width: 150px;">
+                <img src="/demo/images/logo2.png" alt="" style="height: 30px;width: 150px;">
             </router-link>
         </div>
 
         <div class="layout-topbar-actions">
-            <div class="layout-config-menu">
-                <button type="button" class="layout-topbar-action" @click="toggleDarkMode">
-                    <i :class="['pi', { 'pi-moon': isDarkTheme, 'pi-sun': !isDarkTheme }]"></i>
-                </button>
-            </div>
 
             <button
                 class="layout-topbar-menu-button layout-topbar-action"
