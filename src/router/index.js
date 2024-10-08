@@ -71,6 +71,11 @@ const router = createRouter({
                     path: '/agent/scanner',
                     name: 'scanner',
                     component: () => import('@/views/agent/Scan.vue')
+                },
+                {
+                    path: '/agent/payment',
+                    name: 'payment',
+                    component: () => import('@/views/agent/Payment.vue')
                 }
                 
             ]
@@ -115,6 +120,11 @@ const router = createRouter({
                     path: '/admin/misc',
                     name: 'misc',
                     component: () => import('@/views/admin/MiscDoc.vue')
+                },
+                {
+                    path: '/admin/area',
+                    name: 'area',
+                    component: () => import('@/views/admin/Area.vue')
                 },
         
         

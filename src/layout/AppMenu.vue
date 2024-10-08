@@ -5,16 +5,17 @@ import AppMenuItem from './AppMenuItem.vue';
 
 const model = ref([
     {
-        items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/views/dashboard' }]
-    },
-    {
-        label: 'UI Components',
         items: [
-            { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', to: '/admin/formlayout' },
-            { label: 'Button', icon: 'pi pi-fw pi-mobile', to: '/admin/button', class: 'rotated-icon' },
-            { label: 'Menu', icon: 'pi pi-fw pi-bars', to: '/admin/menu' },
-            { label: 'Message', icon: 'pi pi-fw pi-comment', to: '/admin/message' },
-            { label: 'Misc', icon: 'pi pi-fw pi-circle', to: '/admin/misc' }
+            { label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/views/dashboard' },
+            // { label: 'Area', icon: 'pi pi-fw pi-id-card', to: '/admin/formlayout' },
+            { label: 'Area', icon: 'pi pi-fw pi-id-card', to: '/admin/area' },
+            { label: 'Customer', icon: 'pi pi-user-plus', to: '/admin/button', class: 'rotated-icon' },
+            { label: 'Agents', icon: 'pi pi-users', to: '/admin/menu' },
+            { label: 'Staff', icon: 'pi pi-users', to: '/admin/message' },
+            { label: 'Inventory', icon: 'pi pi-th-large', to: '/admin/misc' },
+            { label: 'Sales', icon: 'pi pi-money-bill', to: '/admin/misc' },
+            { label: 'Reports', icon: 'pi pi-file', to: '/admin/misc' },
+            { label: 'Message', icon: 'pi pi-comment', to: '/admin/misc' }
         ]
     },
     // {

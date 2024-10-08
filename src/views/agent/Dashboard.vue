@@ -19,7 +19,7 @@ const formatCurrency = (value) => {
 
 <template>
   <div class="space">
-    <h1 class="text-4xl font-bold mb-6" style="color: #899499;">Container on Loan</h1>
+    <h1 class="text-4xl font-bold mb-6" style="color: #899499;">Container on Loan</h1>  
   </div>
 
   <div class="card shadow-md" style="height: 550px">
