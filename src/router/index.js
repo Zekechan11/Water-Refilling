@@ -93,33 +93,45 @@ const router = createRouter({
                     component: () => import('@/views/Dashboard.vue')
                 },
                 
+
                 {
-                    path: '/admin/formlayout',
-                    name: 'formlayout',
-                    component: () => import('@/views/admin/FormLayout.vue')
-                },
-                {
-                    path: '/admin/button',
-                    name: 'button',
-                    component: () => import('@/views/admin/ButtonDoc.vue')
+                    path: '/admin/add-customer',
+                    name: 'addcustomer',
+                    component: () => import('@/views/admin/AddCustomer.vue')
                 },
                 
                 {
+                    path: '/admin/add-staff',
+                    name: 'addstaff',
+                    component: () => import('@/views/admin/AddStaff.vue')
+                },
+        
+                {
+                    path: '/admin/add-agent',
+                    name: 'addagent',
+                    component: () => import('@/views/admin/AddAgent.vue')
+                },
+                {
+                    path: '/admin/add-inventory',
+                    name: 'inventory',
+                    component: () => import('@/views/admin/AddInventory.vue')
+                },
+                {
+                    path: '/admin/sales',
+                    name: 'sales',
+                    component: () => import('@/views/admin/Sales.vue')
+                },
+
+                {
                     path: '/admin/message',
                     name: 'message',
-                    component: () => import('@/views/admin/MessagesDoc.vue')
+                    component: () => import('@/views/admin/Chat.vue')
                 },
         
                 {
-                    path: '/admin/menu',
-                    name: 'menu',
-                    component: () => import('@/views/admin/MenuDoc.vue')
-                },
-        
-                {
-                    path: '/admin/misc',
-                    name: 'misc',
-                    component: () => import('@/views/admin/MiscDoc.vue')
+                    path: '/admin/reports',
+                    name: 'reports',
+                    component: () => import('@/views/admin/Reports.vue')
                 },
                 {
                     path: '/admin/area',

@@ -7,7 +7,7 @@ const selectedConversation = ref(null); // Tracks the selected conversation
 
 const conversations = ref([
     { name: 'Admin', lastMessage: 'dol oh', time: '1m', img: 'https://i.pravatar.cc/100?u=ricky' },
-    { name: 'Agent', lastMessage: '.', time: '16m', img: '/demo/images/marj.jpg' },
+    { name: 'Agent', lastMessage: '.', time: '16m', img: 'https://i.pravatar.cc/100?u=ricky' },
 ]);
 
 // Limit the length of last messages to 40 characters

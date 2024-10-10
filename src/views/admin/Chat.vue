@@ -7,7 +7,7 @@ const selectedConversation = ref(null); // Tracks the selected conversation
 
 const conversations = ref([
     { name: 'Ricky Monsales', lastMessage: 'dol oh', time: '1m', img: 'https://i.pravatar.cc/100?u=ricky' },
-    { name: 'Admin', lastMessage: '.', time: '16m', img: 'https://i.pravatar.cc/100?u=ricky' },
+    { name: 'Agent', lastMessage: '.', time: '16m', img: 'https://i.pravatar.cc/100?u=ricky' },
     { name: 'Nicolas Dizon', lastMessage: 'Tulog na', time: '1h', img: 'https://i.pravatar.cc/100?u=edison' },
     { name: 'Edison', lastMessage: 'You sent a photo', time: '1h', img: 'https://i.pravatar.cc/100?u=gojo' },
     { name: 'Diamante Jemar', lastMessage: 'adto ta SM na', time: '1h', img: 'https://i.pravatar.cc/100?u=diamante' },

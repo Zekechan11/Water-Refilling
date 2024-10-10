@@ -9,17 +9,17 @@ onMounted(() => {
         {
             id: createId(),
             code: '1',
-            name: 'Guadalupe Bogo City',
+            name: 'Gallons',
         },
         {
             id: createId(),
             code: '2',
-            name: 'Nailon Bogo City',
+            name: 'Sealed',
         },
         {
             id: createId(),
             code: '3',
-            name: 'Lapaz Bogo City',
+            name: 'Cups',
         }
     ];
 });
@@ -118,11 +118,11 @@ const deleteSelectedProducts = () => {
 <template>
     <div class="space">
         <h1 class="text-4xl font-bold mb-6" style="color: #899499;">
-            Area Data
+            Add Agent
         </h1>
     </div>
     <div>
-        <div class="card shadow-md">
+        <div class="card">
             <Toolbar class="mb-6">
                 <template #start>
                     <Button label="New" icon="pi pi-plus" severity="success" class="mr-2" @click="openNew" />
@@ -155,8 +155,8 @@ const deleteSelectedProducts = () => {
                 </template>
 
                 <Column selectionMode="multiple" style="width: 3rem" :exportable="false"></Column>
-                <Column field="code" header="Id" sortable style="min-width: 12rem"></Column>
-                <Column field="name" header="Area" sortable style="min-width: 16rem"></Column>
+                <Column field="name" header="Items" sortable style="min-width: 16rem"></Column>
+                <Column field="code" header="No of Items" sortable style="min-width: 16rem"></Column>
   
                 <Column :exportable="false" header="Actions" style="min-width: 12rem;">
                     <template #body="slotProps">

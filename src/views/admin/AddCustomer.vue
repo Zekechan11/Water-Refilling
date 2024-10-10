@@ -9,17 +9,20 @@ onMounted(() => {
         {
             id: createId(),
             code: '1',
-            name: 'Guadalupe Bogo City',
+            name: 'Zeke',
+            address: 'Guadalupe Bogo City',
         },
         {
             id: createId(),
             code: '2',
-            name: 'Nailon Bogo City',
+            name: 'Joe',
+            address: 'Nailon Bogo City',
         },
         {
             id: createId(),
             code: '3',
-            name: 'Lapaz Bogo City',
+            name: 'Sakura',
+            address: 'Lapaz Bogo City',
         }
     ];
 });
@@ -118,7 +121,7 @@ const deleteSelectedProducts = () => {
 <template>
     <div class="space">
         <h1 class="text-4xl font-bold mb-6" style="color: #899499;">
-            Area Data
+            Add Customer
         </h1>
     </div>
     <div>
@@ -144,7 +147,7 @@ const deleteSelectedProducts = () => {
             >
                 <template #header>
                     <div class="flex flex-wrap gap-2 items-center justify-between">
-                        <h4 class="m-0">Manage Area</h4>
+                        <h4 class="m-0">Manage Customer</h4>
                         <IconField>
                             <InputIcon>
                                 <i class="pi pi-search" />
@@ -156,7 +159,8 @@ const deleteSelectedProducts = () => {
 
                 <Column selectionMode="multiple" style="width: 3rem" :exportable="false"></Column>
                 <Column field="code" header="Id" sortable style="min-width: 12rem"></Column>
-                <Column field="name" header="Area" sortable style="min-width: 16rem"></Column>
+                <Column field="name" header="Name" sortable style="min-width: 12rem"></Column>
+                <Column field="address" header="Address" sortable style="min-width: 16rem"></Column>
   
                 <Column :exportable="false" header="Actions" style="min-width: 12rem;">
                     <template #body="slotProps">

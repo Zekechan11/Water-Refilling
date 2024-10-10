@@ -14,9 +14,9 @@ const onSettingsClick = () => {
 };
 
 const notifications = ref([
-  { id: 1, message: "Payables #124: ₱200. Due Date: 2024-10-10. Status: Active.", addLine: true },
-  { id: 2, message: "Payables #125: ₱200. Due Date: 2024-10-15. Status: Inactive.", addLine: true },
-  { id: 3, message: "Payables #126: ₱300. Due Date: 2024-10-20. Status: Active.", addLine: true },
+  { id: 1, message: "Message you", addLine: true },
+  { id: 2, message: "Message you", addLine: true },
+  { id: 3, message: "Message you", addLine: true },
 ]);
 
 

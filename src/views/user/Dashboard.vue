@@ -6,15 +6,15 @@ import { onBeforeMount, ref } from 'vue';
 const { getPrimary, getSurface, isDarkTheme } = useLayout();
 const dateFrozen = ref(false);
 const customers2 = ref(null);
-const activeTab = ref('purchase'); // Add a variable for the active tab
 
 onBeforeMount(() => {
     CustomerService.getCustomersLarge().then((data) => (customers2.value = data));
+
 });
 
-const formatCurrency = (value) => {
-  return value.toLocaleString("en-US", { style: "currency", currency: "PHP" });
-};
+function formatCurrency(value) {
+    return value.toLocaleString('en-US', { style: 'currency', currency: 'PHP' });
+}
 </script>
 
 <template>
@@ -42,32 +42,8 @@ const formatCurrency = (value) => {
     </div> -->
 
     <!-- Tab content -->
-    <div v-if="activeTab === 'purchase'">
+    <div>
       <ul class="list-none p-0 m-0">
-        <li class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-          <div>
-            <span class="text-surface-900 dark:text-surface-0 font-bold mr-2 mb-1 md:mb-0">Gallons on Hold :</span>
-          </div>
-          <div class="mt-2 md:mt-0 flex items-center">
-            <span class="ml-4 font-medium">50</span>
-          </div>
-        </li>
-        <li class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-          <div>
-            <span class="text-surface-900 dark:text-surface-0 font-bold mr-2 mb-1 md:mb-0">Purchase :</span>
-          </div>
-          <div class="mt-2 md:mt-0 ml-0 md:ml-20 flex items-center">
-            <span class="ml-4 font-medium">{{ formatCurrency(16) }}</span>
-          </div>
-        </li>
-        <li class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-          <div>
-            <span class="text-surface-900 dark:text-surface-0 font-bold mr-2 mb-1 md:mb-0">Utang :</span>
-          </div>
-          <div class="mt-2 md:mt-0 ml-0 md:ml-20 flex items-center">
-            <span class="ml-4 font-medium">{{ formatCurrency(20) }}</span>
-          </div>
-        </li>
         <li class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
           <div>
             <span class="text-surface-900 dark:text-surface-0 font-bold mr-2 mb-1 md:mb-0">Area :</span>
@@ -75,8 +51,6 @@ const formatCurrency = (value) => {
           <div class="mt-2 md:mt-0 ml-0 md:ml-20 flex items-center">
             <span class="ml-4 font-medium">Guadalupe</span>
           </div>
-        </li>
-        <li class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
           <div>
             <span class="text-surface-900 dark:text-surface-0 font-bold mr-2 mb-1 md:mb-0">Agent :</span>
           </div>
@@ -84,7 +58,14 @@ const formatCurrency = (value) => {
             <span class="ml-4 font-medium">Zeke</span>
           </div>
         </li>
-        <li class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+
+        <li class="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
+          <div>
+            <span class="text-surface-900 dark:text-surface-0 font-bold mr-2 mb-1 md:mb-0">Gallons on Hold :</span>
+          </div>
+          <div class="mt-2 md:mt-0 flex items-center">
+            <span class="ml-4 font-medium">50</span>
+          </div>
           <div>
             <span class="text-surface-900 dark:text-surface-0 font-bold mr-2 mb-1 md:mb-0">Date :</span>
           </div>
@@ -92,6 +73,39 @@ const formatCurrency = (value) => {
             <span class="ml-4 font-medium">02/11/2020</span>
           </div>
         </li>
+        <li class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+          <div>
+            <span class="text-surface-900 dark:text-surface-0 font-bold mr-2 mb-1 md:mb-0">Purchase Gallons:</span>
+          </div>
+          <div class="mt-2 md:mt-0 ml-0 md:ml-20 flex items-center">
+            <span class="ml-4 font-medium">{{ formatCurrency(16) }}</span>
+          </div>
+        </li>
+        <li class="flex flex-col md:flex-row md:items-center md:justify-between mb-12">
+          <div>
+            <span class="text-surface-900 dark:text-surface-0 font-bold mr-2 mb-1 md:mb-0">Amount Paid :</span>
+          </div>
+          <div class="mt-2 md:mt-0 ml-0 md:ml-20 flex items-center">
+            <span class="ml-4 font-medium">{{ formatCurrency(16) }}</span>
+          </div>
+        </li>
+        <li class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+          <div>
+            <span class="text-surface-900 dark:text-surface-0 font-bold mr-2 mb-1 md:mb-0">Amount Payable  :</span>
+          </div>
+          <div class="mt-2 md:mt-0 ml-0 md:ml-20 flex items-center">
+            <span class="ml-4 font-medium">{{ formatCurrency(20) }}</span>
+          </div>
+        </li>
+        <li class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+          <div>
+            <span class="text-surface-900 dark:text-surface-0 font-bold mr-2 mb-1 md:mb-0">Paid  :</span>
+          </div>
+          <div class="mt-2 md:mt-0 ml-0 md:ml-20 flex items-center">
+            <span class="ml-4 font-medium">{{ formatCurrency(20) }}</span>
+          </div>
+        </li>
+        
       </ul>
     </div>
 
@@ -116,21 +130,16 @@ const formatCurrency = (value) => {
   </div>
 
   <!-- DataTable Card for Customers -->
-  <div class="card mt-6 shadow-md">
-    <div class="font-semibold text-xl mb-4">Frozen Columns</div>
-    <ToggleButton v-model="dateFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Date" offLabel="Date" />
-    <DataTable :value="customers2" scrollable scrollHeight="400px" class="mt-6">
-      <Column field="id" header="Id" style="min-width: 100px"></Column>
-      <Column field="activity" header="Gallons on Hold" style="min-width: 200px"></Column>
-      <Column field="activity" header="Purchase" style="min-width: 200px"></Column>
-      <Column field="balance" header="Utang" style="min-width: 200px">
-        <template #body="{ data }">
-          <span>{{ formatCurrency(data.balance) }}</span>
-        </template>
-      </Column>
-      <Column field="country.name" header="Area" style="min-width: 200px"></Column>
-      <Column field="representative.name" header="Agent" style="min-width: 200px"></Column>
-      <Column field="date" header="Date" style="min-width: 200px" alignFrozen="right" :frozen="dateFrozen"></Column>
-    </DataTable>
-  </div>
+  <div class="card shadow-md">
+        <ToggleButton v-model="dateFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Date" offLabel="Date" />
+
+        <DataTable :value="customers2" scrollable scrollHeight="400px" class="mt-6">
+            <Column field="activity" header="Purchase Gallons" style="min-width: 200px"></Column>
+            <Column field="representative.name" header="Galllons Collected" style="min-width: 200px"></Column>
+            <Column field="representative.name" header="Amount Paid" style="min-width: 200px"></Column>
+            <Column field="date" header="Date" style="min-width: 200px" alignFrozen="right" :frozen="dateFrozen"></Column>
+            <!-- <Column field="status" header="Status" style="min-width: 200px"></Column> -->
+       
+        </DataTable>
+    </div>
 </template>

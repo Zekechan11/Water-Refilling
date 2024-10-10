@@ -7,15 +7,31 @@ const model = ref([
     {
         items: [
             { label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/views/dashboard' },
-            // { label: 'Area', icon: 'pi pi-fw pi-id-card', to: '/admin/formlayout' },
             { label: 'Area', icon: 'pi pi-fw pi-id-card', to: '/admin/area' },
-            { label: 'Customer', icon: 'pi pi-user-plus', to: '/admin/button', class: 'rotated-icon' },
-            { label: 'Agents', icon: 'pi pi-users', to: '/admin/menu' },
-            { label: 'Staff', icon: 'pi pi-users', to: '/admin/message' },
-            { label: 'Inventory', icon: 'pi pi-th-large', to: '/admin/misc' },
-            { label: 'Sales', icon: 'pi pi-money-bill', to: '/admin/misc' },
-            { label: 'Reports', icon: 'pi pi-file', to: '/admin/misc' },
-            { label: 'Message', icon: 'pi pi-comment', to: '/admin/misc' }
+            {
+                label: 'Customer',
+                icon: 'pi pi-user-plus',
+                items: [
+                    {
+                        label: 'Active',
+                        icon: 'pi pi-fw pi-bookmark',
+                    },
+                    {
+                        label: 'Inactive',
+                        icon: 'pi pi-fw pi-bookmark',
+                    },
+                ]
+            },
+            { 
+                label: 'Customer', icon: 'pi pi-user-plus', to: '/admin/add-customer', class: 'rotated-icon' 
+                
+            },
+            { label: 'Agents', icon: 'pi pi-users', to: '/admin/add-agent' },
+            { label: 'Staff', icon: 'pi pi-users', to: '/admin/add-staff' },
+            { label: 'Inventory', icon: 'pi pi-th-large', to: '/admin/add-inventory' },
+            { label: 'Sales', icon: 'pi pi-money-bill', to: '/admin/sales' },
+            { label: 'Reports', icon: 'pi pi-file', to: '/admin/reports' },
+            { label: 'Message', icon: 'pi pi-comment', to: '/admin/message' }
         ]
     },
     // {

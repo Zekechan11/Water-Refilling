@@ -28,10 +28,6 @@ function formatCurrency(value) {
         <ToggleButton v-model="dateFrozen" onIcon="pi pi-lock" offIcon="pi pi-lock-open" onLabel="Date" offLabel="Date" />
 
         <DataTable :value="customers2" scrollable scrollHeight="400px" class="mt-6">
-            <Column field="id" header="Id" style="min-width: 100px"></Column>
-            <Column field="activity" header="Container on Loan" style="min-width: 200px"></Column>
-
-            <Column field="country.name" header="Area" style="min-width: 200px"></Column>
             <Column field="representative.name" header="Galllons Collected" style="min-width: 200px"></Column>
             <Column field="representative.name" header="Amount Collected" style="min-width: 200px"></Column>
             <Column field="date" header="Date" style="min-width: 200px" alignFrozen="right" :frozen="dateFrozen"></Column>
