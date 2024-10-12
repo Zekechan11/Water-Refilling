@@ -92,12 +92,27 @@ const router = createRouter({
                     name: 'dashboardss',
                     component: () => import('@/views/Dashboard.vue')
                 },
+                {
+                    path: '/admin/settings',
+                    name: 'settings',
+                    component: () => import('@/views/admin/Setting.vue')
+                },
                 
 
                 {
-                    path: '/admin/add-customer',
-                    name: 'addcustomer',
-                    component: () => import('@/views/admin/AddCustomer.vue')
+                    path: '/admin/Customer/add-customer',
+                    name: 'add-customer',
+                    component: () => import('@/views/admin/Customer/AddCustomer.vue')
+                },
+                {
+                    path: '/admin/Customer/active-customer',
+                    name: 'active-customer',
+                    component: () => import('@/views/admin/Customer/ActiveCustomer.vue')
+                },
+                {
+                    path: '/admin/Customer/inactive-customer',
+                    name: 'inactive-customer',
+                    component: () => import('@/views/admin/Customer/InactiveCustomer.vue')
                 },
                 
                 {

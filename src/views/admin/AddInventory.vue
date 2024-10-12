@@ -32,9 +32,7 @@ const deleteProductDialog = ref(false);
 const deleteProductsDialog = ref(false);
 const product = ref({});
 const selectedProducts = ref();
-const filters = ref({
-    'global': {value: null, matchMode: FilterMatchMode.CONTAINS},
-});
+
 const submitted = ref(false);
 
 const openNew = () => {
@@ -118,7 +116,7 @@ const deleteSelectedProducts = () => {
 <template>
     <div class="space">
         <h1 class="text-4xl font-bold mb-6" style="color: #899499;">
-            Add Agent
+            Inventory
         </h1>
     </div>
     <div>
@@ -137,22 +135,10 @@ const deleteSelectedProducts = () => {
                 dataKey="id"
                 :paginator="true"
                 :rows="10"
-                :filters="filters"
                 paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
                 :rowsPerPageOptions="[5, 10, 25]"
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products"
             >
-                <template #header>
-                    <div class="flex flex-wrap gap-2 items-center justify-between">
-                        <h4 class="m-0">Manage Area</h4>
-                        <IconField>
-                            <InputIcon>
-                                <i class="pi pi-search" />
-                            </InputIcon>
-                            <InputText v-model="filters['global'].value" placeholder="Search..." />
-                        </IconField>
-                    </div>
-                </template>
 
                 <Column selectionMode="multiple" style="width: 3rem" :exportable="false"></Column>
                 <Column field="name" header="Items" sortable style="min-width: 16rem"></Column>
@@ -167,11 +153,16 @@ const deleteSelectedProducts = () => {
             </DataTable>
         </div>
 
-        <Dialog v-model:visible="productDialog" :style="{ width: '450px' }" header="Add Area" :modal="true">
+        <Dialog v-model:visible="productDialog" :style="{ width: '450px' }" header="Inventory" :modal="true">
             <div class="flex flex-col gap-6">
                 <div>
-                    <label for="name" class="block font-bold mb-3">Area</label>
+                    <label for="name" class="block font-bold mb-3">Items</label>
                     <InputText id="name" v-model.trim="product.name" required="true" autofocus :invalid="submitted && !product.name" fluid />
+                    <small v-if="submitted && !product.name" class="text-red-500">Name is required.</small>
+                </div>
+                <div>
+                    <label for="name" class="block font-bold mb-3">No of Items</label>
+                    <InputText id="name" v-model.trim="product.code" required="true" autofocus :invalid="submitted && !product.name" fluid />
                     <small v-if="submitted && !product.name" class="text-red-500">Name is required.</small>
                 </div>
 

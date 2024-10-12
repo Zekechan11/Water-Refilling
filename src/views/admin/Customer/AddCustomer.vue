@@ -171,11 +171,16 @@ const deleteSelectedProducts = () => {
             </DataTable>
         </div>
 
-        <Dialog v-model:visible="productDialog" :style="{ width: '450px' }" header="Add Area" :modal="true">
+        <Dialog v-model:visible="productDialog" :style="{ width: '450px' }" header="Add Customer" :modal="true">
             <div class="flex flex-col gap-6">
                 <div>
-                    <label for="name" class="block font-bold mb-3">Area</label>
+                    <label for="name" class="block font-bold mb-3">Name</label>
                     <InputText id="name" v-model.trim="product.name" required="true" autofocus :invalid="submitted && !product.name" fluid />
+                    <small v-if="submitted && !product.name" class="text-red-500">Name is required.</small>
+                </div>
+                <div>
+                    <label for="name" class="block font-bold mb-3">Address</label>
+                    <InputText id="name" v-model.trim="product.address" required="true" autofocus :invalid="submitted && !product.name" fluid />
                     <small v-if="submitted && !product.name" class="text-red-500">Name is required.</small>
                 </div>
 

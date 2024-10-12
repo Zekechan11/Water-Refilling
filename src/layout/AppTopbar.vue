@@ -10,7 +10,7 @@ const router = useRouter();
 
 const onSettingsClick = () => {
   topbarMenuActive.value = false;
-  router.push("/user/settings");a
+  router.push("/admin/settings");a
 };
 
 const notifications = ref([

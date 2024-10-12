@@ -91,7 +91,7 @@ function smoothScroll(id) {
             opacity: 0.7;
         "></div>
         <div class="mx-6 md:mx-20 mt-0 md:mt-20 relative z-10">
-          <h1 class="text-7xl font-bold text-blue-500 leading-tight" style="position: relative; top: 100px">
+          <h1 class="text-7xl font-bold text-blue-500 leading-tight drop-shadow-sm" style="position: relative; top: 100px;filter: drop-shadow(0 3px 2px rgb(0 0 0 / 0.6));">
             Welcome
             <span class="block">Home</span>
           </h1>

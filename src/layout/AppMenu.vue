@@ -12,20 +12,25 @@ const model = ref([
                 label: 'Customer',
                 icon: 'pi pi-user-plus',
                 items: [
+                    { 
+                        label: 'Customer', 
+                        icon: 'pi pi-user-plus', 
+                        to: '/admin/customer/add-customer', 
+                        class: 'rotated-icon' 
+                    },
                     {
                         label: 'Active',
                         icon: 'pi pi-fw pi-bookmark',
+                        to: '/admin/customer/active-customer'
                     },
                     {
                         label: 'Inactive',
                         icon: 'pi pi-fw pi-bookmark',
+                        to: '/admin/customer/inactive-customer'
                     },
                 ]
             },
-            { 
-                label: 'Customer', icon: 'pi pi-user-plus', to: '/admin/add-customer', class: 'rotated-icon' 
-                
-            },
+           
             { label: 'Agents', icon: 'pi pi-users', to: '/admin/add-agent' },
             { label: 'Staff', icon: 'pi pi-users', to: '/admin/add-staff' },
             { label: 'Inventory', icon: 'pi pi-th-large', to: '/admin/add-inventory' },

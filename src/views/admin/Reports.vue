@@ -1,16 +1,10 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import { FilterMatchMode } from '@primevue/core/api';
 import { CustomerService } from '@/service/CustomerService';
 
 const customers = ref([]);
 const startDate = ref(null);
 const endDate = ref(null);
-const filters = ref({
-    global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    area: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    representative: { value: null, matchMode: FilterMatchMode.IN },
-});
 
 const loading = ref(true);
 
@@ -57,31 +51,22 @@ const filterByDate = () => {
 <template>
     <div class="card">
         <DataTable 
-            v-model:filters="filters" 
             :value="filteredCustomers" 
             paginator 
             :rows="10" 
             dataKey="id" 
             filterDisplay="row" 
-            :loading="loading"
-            :globalFilterFields="['area', 'collected', 'representative.name']">
+            :loading="loading">
 
             <template #header>
                 <div class="flex justify-end items-center space-x-4">
-                    <IconField>
-                        <InputIcon>
-                            <i class="pi pi-search" />
-                        </InputIcon>
-                        <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
-                    </IconField>
-
-                    <IftaLabel>
+                    <label>
                         <DatePicker v-model="startDate" inputId="start-date" placeholder="Start Date" showIcon iconDisplay="input" variant="filled" @change="filterByDate"/>
-                    </IftaLabel>
+                    </label>
 
-                    <IftaLabel>
+                    <label>
                         <DatePicker v-model="endDate" inputId="end-date" placeholder="End Date" showIcon iconDisplay="input" variant="filled" @change="filterByDate"/>
-                    </IftaLabel>
+                    </label>
                 </div>
             </template>
 

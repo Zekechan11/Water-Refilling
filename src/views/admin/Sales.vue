@@ -1,16 +1,10 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
-import { FilterMatchMode } from '@primevue/core/api';
 import { CustomerService } from '@/service/CustomerService';
 
 const customers = ref([]);
 const startDate = ref(null);
 const endDate = ref(null);
-const filters = ref({
-    global: { value: null, matchMode: FilterMatchMode.CONTAINS },
-    area: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
-    representative: { value: null, matchMode: FilterMatchMode.IN },
-});
 
 const loading = ref(true);
 
@@ -46,6 +40,16 @@ const filteredCustomers = computed(() => {
     });
 });
 
+// Computed property to calculate the total collected amount
+const totalCollected = computed(() => {
+    // Ensure collected amounts are treated as numbers and calculate the total
+    const total = filteredCustomers.value.reduce((sum, customer) => sum + Number(customer.collected), 0);
+    // Format the total with commas and two decimal places
+    return total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+});
+
+
+
 // Method to filter by date
 const filterByDate = () => {
     // Re-trigger computed property to update the filteredCustomers
@@ -53,41 +57,32 @@ const filterByDate = () => {
 };
 </script>
 
-
 <template>
     <div class="card shadow-md">
         <DataTable 
-            v-model:filters="filters" 
             :value="filteredCustomers" 
             paginator 
             :rows="10" 
             dataKey="id" 
             filterDisplay="row" 
-            :loading="loading"
-            :globalFilterFields="['area', 'collected', 'representative.name']">
+            :loading="loading">
 
             <template #header>
                 <div class="flex justify-end items-center space-x-4">
-                    <IconField>
-                        <InputIcon>
-                            <i class="pi pi-search" />
-                        </InputIcon>
-                        <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
-                    </IconField>
-
-                    <IftaLabel>
+                    <label>
                         <DatePicker v-model="startDate" inputId="start-date" placeholder="Start Date" showIcon iconDisplay="input" variant="filled" @change="filterByDate"/>
-                    </IftaLabel>
+                    </label>
 
-                    <IftaLabel>
+                    <label>
                         <DatePicker v-model="endDate" inputId="end-date" placeholder="End Date" showIcon iconDisplay="input" variant="filled" @change="filterByDate"/>
-                    </IftaLabel>
+                    </label>
                 </div>
             </template>
 
             <template #empty> No customers found. </template>
             <template #loading> Loading customers data. Please wait. </template>
 
+            <!-- Display Agent Name -->
             <Column header="Agent Name" filterField="representative" style="min-width: 14rem">
                 <template #body="{ data }">
                     <div class="flex items-center gap-2">
@@ -97,25 +92,33 @@ const filterByDate = () => {
                 </template>
             </Column>
 
+            <!-- Display Area -->
             <Column field="area" header="Area" style="min-width: 12rem">
                 <template #body="{ data }">
                     {{ data.area }}
                 </template>
             </Column>
 
+            <!-- Display Collected Amount -->
             <Column field="collected" header="Collected Amount" style="min-width: 12rem">
                 <template #body="{ data }">
                     {{ data.collected }}
                 </template>
             </Column>
 
+            <!-- Display Date -->
             <Column header="Date" style="min-width: 12rem">
                 <template #body="{ data }">
                     {{ formatDate(data.date) }}
                 </template>
             </Column>
         </DataTable>
+
+        <!-- Total Collected Amount Section -->
+        <div class="flex justify-end items-center p-4">
+            <strong>Total Collected: </strong>
+            <!-- Access totalCollected.value -->
+            <span class="ml-2">{{ totalCollected }}</span>
+        </div>
     </div>
 </template>
-
-
