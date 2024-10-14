@@ -1,16 +1,32 @@
 <script setup>
 import { useLayout } from "@/layout/composables/layout";
-import { CustomerService } from '@/service/CustomerService';
 import { onBeforeMount, ref } from 'vue';
 
 const { getPrimary, getSurface, isDarkTheme } = useLayout();
 const dateFrozen = ref(false);
-const customers2 = ref(null);
 
-onBeforeMount(() => {
-  CustomerService.getCustomersLarge().then((data) => (customers2.value = data));
+// Manually populated mock data for customers2
+const customers2 = ref([
+  {
+    activity: 10,
+    representative: { name: '5' },
+    amountPaid: '₱ 500.00',
+    date: '2024-10-12'
+  },
+  {
+    activity: 15,
+    representative: { name: '2' },
+    amountPaid: '₱ 750.00',
+    date: '2024-10-11'
+  },
+  {
+    activity: 8,
+    representative: { name: '3' },
+    amountPaid: '₱ 400.00',
+    date: '2024-10-10'
+  }
+]);
 
-});
 
 function formatCurrency(value) {
   return value.toLocaleString('en-US', { style: 'currency', currency: 'PHP' });
@@ -115,11 +131,9 @@ function formatCurrency(value) {
 
     <DataTable :value="customers2" scrollable scrollHeight="400px" class="mt-6">
       <Column field="activity" header="Purchase Gallons" style="min-width: 200px"></Column>
-      <Column field="representative.name" header="Galllons Collected" style="min-width: 200px"></Column>
-      <Column field="representative.name" header="Amount Paid" style="min-width: 200px"></Column>
+      <Column field="representative.name" header="Gallons Collected" style="min-width: 200px"></Column>
+      <Column field="amountPaid" header="Amount Paid" :body="formatCurrency" style="min-width: 200px"></Column>
       <Column field="date" header="Date" style="min-width: 200px" alignFrozen="right" :frozen="dateFrozen"></Column>
-      <!-- <Column field="status" header="Status" style="min-width: 200px"></Column> -->
-
     </DataTable>
   </div>
 </template>

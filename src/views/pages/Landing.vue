@@ -37,7 +37,8 @@ function smoothScroll(id) {
           <i class="pi pi-bars !text-2xl"></i>
         </Button>
         <div
-          class="items-center bg-surface-0 dark:bg-surface-900 grow justify-between hidden lg:flex absolute lg:static w-full left-0 top-full px-12 lg:px-0 z-20" style="background-color: #F0F8FF;">
+          class="items-center bg-surface-0 dark:bg-surface-900 grow justify-between hidden lg:flex absolute lg:static w-full left-0 top-full px-12 lg:px-0 z-20"
+          style="background-color: #F0F8FF;">
           <ul class="list-none p-0 m-0 flex lg:items-center select-none flex-col lg:flex-row cursor-pointer gap-8">
             <li>
               <a @click="smoothScroll('#hero')" class="menu-item">
@@ -49,14 +50,15 @@ function smoothScroll(id) {
                 <button text>About us</button>
               </a>
             </li>
-            <li>
-              <a @click="smoothScroll('#deleveries')" class="menu-item">
-                <button text>Schedules</button>
-              </a>
-            </li>
+
             <li>
               <a @click="smoothScroll('#testi')" class="menu-item">
                 <button text>Testimonials</button>
+              </a>
+            </li>
+            <li>
+              <a @click="smoothScroll('#delivery-schedules')" class="menu-item">
+                <button text>Schedules</button>
               </a>
             </li>
             <li>
@@ -91,15 +93,16 @@ function smoothScroll(id) {
             opacity: 0.7;
         "></div>
         <div class="mx-6 md:mx-20 mt-0 md:mt-20 relative z-10">
-          <h1 class="text-7xl font-bold text-blue-500 leading-tight drop-shadow-sm" style="position: relative; top: 100px;filter: drop-shadow(0 3px 2px rgb(0 0 0 / 0.6));">
+          <h1 class="text-7xl font-bold text-blue-500 leading-tight drop-shadow-sm"
+            style="position: relative; top: 100px;filter: drop-shadow(0 3px 2px rgb(0 0 0 / 0.6));">
             Welcome
             <span class="block">Home</span>
           </h1>
 
           <p class="font-normal text-2xl leading-normal md:mt-4 text-gray-700"
             style="position: relative; top: 100px; color: white">
-            Come to our station Efficient water refilling station management <br/>
-            transforms a basic necessity into a sustainable service, ensuring <br/>
+            Come to our station Efficient water refilling station management <br />
+            transforms a basic necessity into a sustainable service, ensuring <br />
             every drop is accounted for and every customer is satisfied.
           </p>
           <Button label="Get Started" as="router-link" to="/views/dashboard" severity="info" raised rounded
@@ -264,107 +267,86 @@ function smoothScroll(id) {
         </div>
       </div>
 
-      <div id="deleveries" class="py-6 px-6 lg:px-20 my-2 md:my-6">
+      <div id="delivery-schedules" class="py-6 px-6 lg:px-20 my-2 md:my-6">
         <div class="text-center mb-6">
           <div class="text-surface-900 dark:text-surface-0 font-normal mb-2 text-4xl">
-            Here's How it Works
+            Delivery Schedules
           </div>
-          <span class="text-muted-color text-2xl">Hadokin</span>
+          <span class="text-muted-color text-2xl">Upcoming deliveries</span>
         </div>
 
-        <div class="grid grid-cols-12 gap-4 justify-between mt-20 md:mt-0">
-          <div class="col-span-12 lg:col-span-4 p-0 md:p-4">
-            <div
-              class="p-4 flex flex-col border-surface-200 dark:border-surface-600 pricing-card cursor-pointer border-2 hover:border-primary duration-300 transition-all"
-              style="border-radius: 10px">
-              <div class="text-surface-900 dark:text-surface-0 text-center my-8 text-3xl"></div>
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/113242f612a25f6013bfbf4d84806cbc62efef27ab478aa55ba6820e2bbd38fa?placeholderIfAbsent=true&apiKey=8205138dbf9646f198b9f4c85c0a161f"
-                class="w-7/12 mx-auto" alt="free" />
-              <div class="my-8 flex flex-col items-center gap-4">
-                <Button label="Order First"
-                  class="p-button-rounded border-0 ml-4 font-light leading-tight bg-blue-500 text-white"></Button>
-              </div>
-              <Divider class="w-full bg-surface-200"></Divider>
-              <ul class="my-8 list-none p-0 flex text-surface-900 dark:text-surface-0 flex-col px-8">
-                <li class="py-2">
-                  <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                  <span class="text-xl leading-normal">wer</span>
-                </li>
-
-                <li class="py-2">
-                  <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                  <span class="text-xl leading-normal">wer</span>
-                </li>
-                <li class="py-2">
-                  <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                  <span class="text-xl leading-normal">rew</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-span-12 lg:col-span-4 p-0 md:p-4 mt-6 md:mt-0">
-            <div
-              class="p-4 flex flex-col border-surface-200 dark:border-surface-600 pricing-card cursor-pointer border-2 hover:border-primary duration-300 transition-all"
-              style="border-radius: 10px">
-              <div class="text-surface-900 dark:text-surface-0 text-center my-8 text-3xl"></div>
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/113242f612a25f6013bfbf4d84806cbc62efef27ab478aa55ba6820e2bbd38fa?placeholderIfAbsent=true&apiKey=8205138dbf9646f198b9f4c85c0a161f"
-                class="w-7/12 mx-auto" alt="free" />
-              <div class="my-8 flex flex-col items-center gap-4">
-                <Button label="Order First"
-                  class="p-button-rounded border-0 ml-4 font-light leading-tight bg-blue-500 text-white"></Button>
-              </div>
-              <Divider class="w-full bg-surface-200"></Divider>
-              <ul class="my-8 list-none p-0 flex text-surface-900 dark:text-surface-0 flex-col px-8">
-                <li class="py-2">
-                  <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                  <span class="text-xl leading-normal">Free</span>
-                </li>
-                <li class="py-2">
-                  <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                  <span class="text-xl leading-normal">Basta</span>
-                </li>
-                <li class="py-2">
-                  <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                  <span class="text-xl leading-normal">Free</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="col-span-12 lg:col-span-4 p-0 md:p-4 mt-6 md:mt-0">
-            <div
-              class="p-4 flex flex-col border-surface-200 dark:border-surface-600 pricing-card cursor-pointer border-2 hover:border-primary duration-300 transition-all"
-              style="border-radius: 10px">
-              <div class="text-surface-900 dark:text-surface-0 text-center my-8 text-3xl"></div>
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/113242f612a25f6013bfbf4d84806cbc62efef27ab478aa55ba6820e2bbd38fa?placeholderIfAbsent=true&apiKey=8205138dbf9646f198b9f4c85c0a161f"
-                class="w-7/12 mx-auto" alt="free" />
-              <div class="my-8 flex flex-col items-center gap-4">
-                <Button label="Order First"
-                  class="p-button-rounded border-0 ml-4 font-light leading-tight bg-blue-500 text-white"></Button>
-              </div>
-              <Divider class="w-full bg-surface-200"></Divider>
-              <ul class="my-8 list-none p-0 flex text-surface-900 dark:text-surface-0 flex-col px-8">
-                <li class="py-2">
-                  <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                  <span class="text-xl leading-normal">werew</span>
-                </li>
-                <li class="py-2">
-                  <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                  <span class="text-xl leading-normal">werew</span>
-                </li>
-                <li class="py-2">
-                  <i class="pi pi-fw pi-check text-xl text-cyan-500 mr-2"></i>
-                  <span class="text-xl leading-normal">werew</span>
-                </li>
-              </ul>
+        <div class="grid grid-cols-12 gap-4 justify-between mt-10 shadow-md">
+          <!-- Delivery Schedule Section -->
+          <div class="col-span-12">
+            <div class="overflow-x-auto">
+              <table class="min-w-full bg-white dark:bg-surface-800 rounded-lg shadow-md">
+                <thead>
+                  <tr class="text-left border-b-2 border-surface-200 dark:border-surface-600">
+                    <th class="p-4 text-surface-900 dark:text-surface-0">Area</th>
+                    <th class="p-4 text-surface-900 dark:text-surface-0">Date</th>
+                    <th class="p-4 text-surface-900 dark:text-surface-0">Agent</th>
+                    <th class="p-4 text-surface-900 dark:text-surface-0">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Sample Data Row 1 -->
+                  <tr class="border-b border-surface-200 dark:border-surface-600">
+                    <td class="p-4 text-surface-900 dark:text-surface-0">Guadalupe Bogo City Cebu</td>
+                    <td class="p-4 text-surface-900 dark:text-surface-0">10/20/2024</td>
+                    <td class="p-4 text-surface-900 dark:text-surface-0">Zeke</td>
+                    <td class="p-4">
+                      <span class="text-blue-500">Ongiong</span>
+                    </td>
+                  </tr>
+                  <!-- Sample Data Row 2 -->
+                  <tr class="border-b border-surface-200 dark:border-surface-600">
+                    <td class="p-4 text-surface-900 dark:text-surface-0">Nailon Bogo City Cebu</td>
+                    <td class="p-4 text-surface-900 dark:text-surface-0">10/25/2024</td>
+                    <td class="p-4 text-surface-900 dark:text-surface-0">Jemar</td>
+                    <td class="p-4">
+                      <span class="text-green-500">Completed</span>
+                    </td>
+                  </tr>
+                  <!-- Sample Data Row 3 -->
+                  <tr class="border-b border-surface-200 dark:border-surface-600">
+                    <td class="p-4 text-surface-900 dark:text-surface-0">Lapaz Bogo City Cebu</td>
+                    <td class="p-4 text-surface-900 dark:text-surface-0">11/10/2024</td>
+                    <td class="p-4 text-surface-900 dark:text-surface-0">Anton</td>
+                    <td class="p-4">
+                      <span class="text-red-500">Delayed</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
       </div>
+
+      <div id="delivery-schedules" class="py-6 px-6 lg:px-20 my-2 md:my-6">
+        <div class="text-center mb-6">
+          <div class="text-surface-900 dark:text-surface-0 font-normal mb-2 text-4xl">
+            Delivery Location Map
+          </div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-4 justify-between mt-10">
+          <!-- Delivery Schedule Section -->
+          <div class="col-span-12">
+            <div class="overflow-x-auto ">
+              <!-- Map Section -->
+              <div class="mt-10 shadow-md">
+                <div class="map-container">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106579.66975452998!2d124.0329799807114!3d10.610103019469285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33b58ab81fd35ff9%3A0x3f5f799ff70809!2sBogo%20City%2C%20Cebu%2C%20Philippines!5e0!3m2!1sen!2sau!4v1638656346795!5m2!1sen!2sau"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       <div id="contact" class="py-8 px-6 mx-0 mt-20 lg:mx-0 md:h-80" style="background-color: #01488a">
         <div class="grid grid-cols-12 gap-4">
@@ -476,5 +458,14 @@ function smoothScroll(id) {
 .menu-item:hover::after {
   transform: scaleX(1);
   /* Show underline on hover */
+}
+
+.map-container {
+  width: 100%;
+  /* Adjusts to fill the available space */
+  height: 450px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 20px;
 }
 </style>
