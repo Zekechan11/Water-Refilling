@@ -86,7 +86,7 @@ function formatCurrency(value) {
           </div>
 
           <div class="mt-2 md:mt-0 ml-0 md:ml-20 flex items-center">
-            <span class="ml-4 font-medium">{{ formatCurrency(16) }}</span>
+            <span class="ml-4 font-medium">16</span>
           </div>
 
         </li>

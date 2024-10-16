@@ -158,7 +158,6 @@ const deleteSelectedProducts = () => {
                 </template>
 
                 <Column selectionMode="multiple" style="width: 3rem" :exportable="false"></Column>
-                <Column field="code" header="Id" sortable style="min-width: 12rem"></Column>
                 <Column field="name" header="Agent Name" sortable style="min-width: 12rem"></Column>
                 <Column field="address" header="Area" sortable style="min-width: 16rem"></Column>
   

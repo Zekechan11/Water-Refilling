@@ -19,12 +19,10 @@ const formatCurrency = (value) => {
 
   <div class="card shadow-md h-auto md:h-550px p-4">
     <!-- Tab content -->
-    <div>
-      <center>
-        <h1 class="text-2xl md:text-4xl font-bold mb-6 text-gray-500">Guadalupe</h1>
-      </center>
+    <div class="flex flex-col items-center justify-center h-full">
+      <h1 class="text-2xl md:text-4xl font-bold mb-6 text-gray-500 text-center">Guadalupe</h1>
 
-      <ul class="list-none p-0 m-0 mt-10 px-4 md:px-10">
+      <ul class="list-none p-0 m-0 mt-10 px-4 md:px-10 w-full">
         <li class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
           <div class="bg-blue-500 p-5 rounded-lg text-white flex justify-between w-full">
             <span class="font-bold text-lg md:text-2xl">Container on loan:</span>
@@ -56,3 +54,4 @@ const formatCurrency = (value) => {
     </div>
   </div>
 </template>
+

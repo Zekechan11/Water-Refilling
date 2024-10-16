@@ -25,7 +25,7 @@ const model = ref([
                     },
                     {
                         label: 'Inactive',
-                        icon: 'pi pi-fw pi-bookmark',
+                        icon: 'pi pi-ban',
                         to: '/admin/customer/inactive-customer'
                     },
                 ]
@@ -33,7 +33,23 @@ const model = ref([
            
             { label: 'Agents', icon: 'pi pi-users', to: '/admin/add-agent' },
             { label: 'Staff', icon: 'pi pi-users', to: '/admin/add-staff' },
-            { label: 'Inventory', icon: 'pi pi-th-large', to: '/admin/add-inventory' },
+            {
+                label: 'Manage',
+                icon: 'pi pi-stopwatch',
+                items: [
+                    { 
+                        label: 'Inventory', 
+                        icon: 'pi pi-th-large',  
+                        to: '/admin/add-inventory', 
+                        class: 'rotated-icon' 
+                    },
+                    {
+                        label: 'Container on Loan',
+                        icon: 'pi pi-list',
+                        to: '/admin/container-loan'
+                    }
+                ]
+            },
             { label: 'Sales', icon: 'pi pi-money-bill', to: '/admin/sales' },
             { label: 'Reports', icon: 'pi pi-file', to: '/admin/reports' },
             { label: 'Message', icon: 'pi pi-comment', to: '/admin/message' }

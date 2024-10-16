@@ -157,8 +157,7 @@ const deleteSelectedProducts = () => {
                     </div>
                 </template>
 
-                <Column selectionMode="multiple" style="width: 3rem" :exportable="false"></Column>
-                <Column field="code" header="Id" sortable style="min-width: 12rem"></Column>
+                <Column selectionMode="multiple" style="width: 3rem" :exportable="false"></Column>  
                 <Column field="name" header="Staff Name" sortable style="min-width: 12rem"></Column>
                 <Column field="address" header="Address" sortable style="min-width: 16rem"></Column>
   

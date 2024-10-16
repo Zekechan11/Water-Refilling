@@ -43,17 +43,6 @@ const setActiveTab = (tab) => {
           Profile Image
         </button>
         <div class="mx-2"></div>
-        <!-- Add space here -->
-        <button
-          :class="[
-            'flex-1 py-2 text-center',
-            activeTab === 'userDetails' ? 'bg-blue-600' : 'bg-blue-400',
-          ]"
-          @click="setActiveTab('userDetails')"
-          style="color: white; font-weight: bold; border-radius: 10px"
-        >
-          User Details
-        </button>
       </div>
 
       <!-- Tab Content -->
@@ -103,10 +92,6 @@ const setActiveTab = (tab) => {
               <label for="name2">Last Name</label>
               <InputText id="name2" type="text" />
             </div>
-            <div class="flex flex-col gap-2">
-              <label for="email1">Email</label>
-              <InputText id="email1" type="text" />
-            </div>
             <button
               class="flex-1 py-2 text-center"
               style="
@@ -120,40 +105,6 @@ const setActiveTab = (tab) => {
               Save Changes
             </button>
           </div>
-        </div>
-      </div>
-
-      <div
-        v-if="activeTab === 'userDetails'"
-        style="
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);border-radius: 10px; /* Add your box shadow here */
-        "
-      >
-        <div class="card flex flex-col gap-4">
-          <div class="flex flex-col gap-2">
-            <label for="oldPassword">Old Password</label>
-            <InputText id="oldPassword" type="text" />
-          </div>
-          <div class="flex flex-col gap-2">
-            <label for="newPassword">New Password</label>
-            <InputText id="newPassword" type="text" />
-          </div>
-          <div class="flex flex-col gap-2">
-            <label for="confirmPassword">Confirm New Password</label>
-            <InputText id="confirmPassword" type="text" />
-          </div>
-          <button
-            class="flex-1 py-2 text-center"
-            style="
-              color: darkblue;
-              background-color: #007fff;
-              font-weight: bold;
-              color: white;
-              border-radius: 10px;
-            "
-          >
-            Save Changes
-          </button>
         </div>
       </div>
     </div>
